@@ -128,3 +128,39 @@ def main():
     print("Marks awarded for Correct answer = +1 mark,marks deducted for wrong answer = -0.25 mark.")
     print("Let's start! ")
     print("Good Luck! You have to answer 12 questions. Type the number of your choice (1-4) and press Enter.\n")
+    
+    # Shuffle the question numbers to get a random order
+    order = list(QUIZ.keys())
+    random.shuffle(order)
+
+    score = 0
+    position = 1
+
+    # A normal for loop 
+    for q_no in order:
+        question = QUIZ[q_no][0]
+        options = QUIZ[q_no][1]
+        correct = QUIZ[q_no][2]
+
+        print("\nQuestion", position, "of", len(order))
+        print(question)
+
+        # Print the 4 options
+        number = 1
+        for option in options:
+            print(" ", number, ".", option)
+            number = number + 1
+
+        choice = get_answer()
+
+        if choice == correct:
+            print("  Correct! +1")
+            score = score + 1
+        else:
+            print("  Wrong! The correct answer is", correct, "(-0.25)")
+            score = score - NEGATIVE_MARK
+
+        position = position + 1
+
+    total = len(QUIZ)
+    grade = get_grade(score, total)
