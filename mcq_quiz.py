@@ -100,6 +100,19 @@ def show_leaderboard():
             name = parts[0]
             score = float(parts[1])
             total = parts[2]
+            
+ # Sort so the highest score comes first
+    
+    entries.sort(reverse=True)
+    print("\n====== LEADERBOARD (Top 5) ======")
+    rank = 1
+    for entry in entries:
+        if rank > 5:
+            break
+        print(rank, "-", entry[1], "-", entry[0], "/", entry[2], "-", entry[3])
+        rank = rank + 1
+
+
             grade = parts[3]
             entries.append([score, name, total, grade])
 
