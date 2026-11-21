@@ -56,3 +56,22 @@ def get_answer():
         answer = input("Your answer (1-4): ")
     return int(answer)
 
+
+
+def get_grade(score, total):
+    """Return a grade based on the percentage."""
+    if total == 0:
+        return "F"
+    
+    percent = score / total * 100
+    if percent >= 90:
+        return "A+"
+    elif percent >= 75:
+        return "A"
+    elif percent >= 60:
+        return "B"
+    elif percent >= 40:
+        return "C"
+    else:
+        return "F"
+
