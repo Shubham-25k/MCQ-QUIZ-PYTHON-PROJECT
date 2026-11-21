@@ -46,3 +46,13 @@ QUIZ = {
     12: ("Which file mode opens a file for appending?",
          ("r", "w", "a", "x"), 3),
 }
+
+def get_answer():
+    """Keep asking until the player types 1, 2, 3 or 4."""
+    answer = input("Your answer (1-4): ")
+    # isdigit() checks that the text is a number, so we don't need try/except
+    while not answer.isdigit() or int(answer) < 1 or int(answer) > 4:
+        print("  Please type a number between 1 and 4.")
+        answer = input("Your answer (1-4): ")
+    return int(answer)
+
