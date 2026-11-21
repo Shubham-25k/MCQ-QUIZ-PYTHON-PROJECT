@@ -81,3 +81,16 @@ def save_score(name, score, total, grade):
     file = open(LEADERBOARD_FILE, "a")
     file.write(name + "," + str(score) + "," + str(total) + "," + grade + "\n")
     file.close()
+
+
+def show_leaderboard():
+    """Read the leaderboard file (mode 'r') and print the top 5 scores."""
+    # Make sure the file exists. Mode 'a' creates it if it is missing.
+    file = open(LEADERBOARD_FILE, "a")
+    file.close()
+
+    file = open(LEADERBOARD_FILE, "r")
+    lines = file.readlines()
+    file.close()
+
+
