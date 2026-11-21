@@ -92,7 +92,8 @@ def show_leaderboard():
     file = open(LEADERBOARD_FILE, "r")
     lines = file.readlines()
     file.close()
-# Put every line into a list of [score, name, total, grade]
+    
+    # Put every line into a list of [score, name, total, grade]
     entries = []
     for line in lines:
         parts = line.strip().split(",")
@@ -101,7 +102,7 @@ def show_leaderboard():
             score = float(parts[1])
             total = parts[2]
             
- # Sort so the highest score comes first
+     # Sort so the highest score comes first
     
     entries.sort(reverse=True)
     print("\n====== LEADERBOARD (Top 5) ======")
@@ -164,3 +165,12 @@ def main():
 
     total = len(QUIZ)
     grade = get_grade(score, total)
+
+ print("\n========== RESULT ==========")
+    print("Final score:", score, "/", total)
+    print("Grade:", grade)
+
+    save_score(name, score, total, grade)
+    show_leaderboard()
+
+main()
