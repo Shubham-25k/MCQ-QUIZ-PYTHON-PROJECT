@@ -75,3 +75,9 @@ def get_grade(score, total):
     else:
         return "F"
 
+
+def save_score(name, score, total, grade):
+    """Append the result to the leaderboard file (mode 'a' = append)."""
+    file = open(LEADERBOARD_FILE, "a")
+    file.write(name + "," + str(score) + "," + str(total) + "," + grade + "\n")
+    file.close()
