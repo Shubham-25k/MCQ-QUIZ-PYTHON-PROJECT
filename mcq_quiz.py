@@ -117,3 +117,14 @@ def show_leaderboard():
             entries.append([score, name, total, grade])
 
 
+def main():
+    print("=== MCQ Quiz Game: Python Basics ===")
+    name = input("Enter your name: ")
+    name = name.replace(",", "").strip()  # a comma would break our file format
+    if name == "":
+        name = "Player"
+
+    print("\nHello,", name + "!")
+    print("Marks awarded for Correct answer = +1 mark,marks deducted for wrong answer = -0.25 mark.")
+    print("Let's start! ")
+    print("Good Luck! You have to answer 12 questions. Type the number of your choice (1-4) and press Enter.\n")
