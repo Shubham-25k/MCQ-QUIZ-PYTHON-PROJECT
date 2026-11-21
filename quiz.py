@@ -6,13 +6,11 @@ Features:
 - 12 questions, each stored as a tuple: (question, (4 options), correct_option_number)
 - All questions held in a dictionary
 - Questions asked in random order using random.shuffle
-- +1 for a correct answer, negative marking for a wrong one
+- +1 for a correct answer, negative marking for a wrong one(-0.25)
 - Final score with a grade
 - Leaderboard saved in a file
-- used:- Python basics, Nested loops, Sets, Tuples, Dictionaries, File Handling,
+- Topics used:- Python basics, Nested loops, Sets, Tuples, Dictionaries, File Handling,
 - Functions, Random module, String methods, Input validation
-
-Run the quiz:      python quiz.py
 """
 
 import random
@@ -49,6 +47,15 @@ QUIZ = {
          ("r", "w", "a", "x"), 3),
 }
 
+def get_answer():
+    """Keep asking until the player types 1, 2, 3 or 4."""
+    answer = input("Your answer (1-4): ")
+    # isdigit() checks that the text is a number, so we don't need try/except
+    while not answer.isdigit() or int(answer) < 1 or int(answer) > 4:
+        print("  Please type a number between 1 and 4.")
+        answer = input("Your answer (1-4): ")
+    return int(answer)
+
 
 def get_grade(score, total):
     """Return a grade based on the percentage."""
@@ -67,15 +74,6 @@ def get_grade(score, total):
     else:
         return "F"
 
-
-def get_answer():
-    """Keep asking until the player types 1, 2, 3 or 4."""
-    answer = input("Your answer (1-4): ")
-    # isdigit() checks that the text is a number, so we don't need try/except
-    while not answer.isdigit() or int(answer) < 1 or int(answer) > 4:
-        print("  Please type a number between 1 and 4.")
-        answer = input("Your answer (1-4): ")
-    return int(answer)
 
 
 def save_score(name, score, total, grade):
@@ -126,8 +124,9 @@ def main():
         name = "Player"
 
     print("\nHello,", name + "!")
-    print("Correct answer = +1 mark, wrong answer = -0.25 mark.")
-    print("Let's start!\n")
+    print("Marks awarded for Correct answer = +1 mark,marks deducted for wrong answer = -0.25 mark.")
+    print("Let's start! ")
+    print("Good Luck! You have to answer 12 questions. Type the number of your choice (1-4) and press Enter.\n")
 
     # Shuffle the question numbers to get a random order
     order = list(QUIZ.keys())
