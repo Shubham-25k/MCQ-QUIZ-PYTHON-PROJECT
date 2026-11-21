@@ -92,5 +92,15 @@ def show_leaderboard():
     file = open(LEADERBOARD_FILE, "r")
     lines = file.readlines()
     file.close()
+# Put every line into a list of [score, name, total, grade]
+    entries = []
+    for line in lines:
+        parts = line.strip().split(",")
+        if len(parts) == 4:          # only use lines in the correct format
+            name = parts[0]
+            score = float(parts[1])
+            total = parts[2]
+            grade = parts[3]
+            entries.append([score, name, total, grade])
 
 
