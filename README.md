@@ -136,7 +136,7 @@ Strings · Operators · Lists · Tuples · Dictionaries · `if-elif-else` · `fo
 |---------------|
 | Vivek Yadav   |
 | Shubham Kumar |
-| Aditya Maurya |
+| Aditya Pratap Maurya |
 | Ashish Gupta  |
 
 ---
